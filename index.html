@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>😻 patcat</title>
+        <style>
+            * {
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            body {
+                background: linear-gradient(45deg, lightblue, tomato, lightgreen);
+                background-size: 100% 100vh;
+                padding: 0;
+                margin: 0;
+            }
+            .top-bar {
+                background-color: white;
+                padding-top: 20px;
+                padding-bottom: 10px;
+            }
+            .top-bar .logo {
+                max-height: 50px;
+            }
+            .centerstage {
+                /* background-color: pink; */
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 1366px;
+                max-width: calc(100% - 30px);
+            }
+            .centerstage img {
+                height: 45px;
+            }
+            .contents {
+                margin-top: 15px;
+            }
+            .container {
+                border-radius: 5px;
+                background-color: white;
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+            .flex {
+                display: flex;
+                flex-wrap: nowrap;
+                gap: 10px
+            }
+            .flex .container {
+                flex-grow: 1;
+            }
+            .banner img {
+                width: 60px;
+                height: auto;
+                /* outline: auto; */
+            }
+            .gamemode {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-height: 250px;
+                min-width: 300px;
+                width: 100%;
+                max-width: calc(100% - 40px);
+                gap: 10px;
+                max-height: 200px;
+                overflow: hidden;
+                padding: 0;
+            }
+            .gamemode strong {
+                margin-top: 10px;
+            }
+            .gamemode img {
+                min-width: 100%;
+                height: 100%;
+                background-color: pink;
+            }
+            .player {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-width: 70px;
+                max-width: 80px;
+                gap: 10px;
+            }
+            .x-scroll {
+                overflow-x: scroll;
+            }
+            @media screen and (max-width: 600px) {
+                .gamemode {
+                    min-height: 200px;
+                    min-width: 300px;
+                    width: 100%;
+                    max-width: calc(100% - 40px);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="top-bar">
+            <div class="centerstage">
+                <img class="logo" src="./logo.png" alt="testing logo stuff">
+            </div>
+        </div>
+        <div class="centerstage contents">
+            <h2>Featured Game Modes</h2>
+            <div class="flex x-scroll">
+                <div class="container gamemode banner">
+                    <strong>Survival</strong>
+                    <img src="./logo.png" alt="">
+                </div>
+                <div class="container gamemode banner">
+                    <strong>Hardcore</strong>
+                    <img src="./logo.png" alt="">
+                </div>
+                <div class="container gamemode banner">
+                    <strong>Lifesteal</strong>
+                    <img src="./logo.png" alt="">
+                </div>
+                <div class="container gamemode banner">
+                    <strong>Lifesteal</strong>
+                    <img src="./logo.png" alt="">
+                </div>
+                <div class="container gamemode banner">
+                    <strong>Lifesteal</strong>
+                    <img src="./logo.png" alt="">
+                </div>
+            </div>
+            <h2>Featured Players</h2>
+            <div class="flex x-scroll">
+                <div class="container player banner">
+                    <strong>Player1</strong>
+                    <img src="./logo.png" alt="">
+                </div>
+                <div class="container player banner">
+                    <strong>Player2</strong>
+                    <img src="./logo.png" alt="">
+                </div>
+            </div>
+            <div class="container">
+                <strong>Hello World!</strong>
+                Hello World
+            </div>
+            <div class="container">
+                Hello
+            </div>
+        </div>
+    </body>
+</html>
