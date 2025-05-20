@@ -71,10 +71,20 @@
             .gamemode strong {
                 margin-top: 10px;
             }
-            .gamemode img {
-                min-width: 100%;
+            .img-container {
+                overflow: hidden;
+                position: relative;
+                width: 100%;
                 height: 100%;
-                background-color: pink;
+                align-items: center;
+                justify-content: center;
+            }
+            .img-container img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                object-position: center;
+                display: block;
             }
             .player {
                 display: flex;
@@ -85,7 +95,16 @@
                 gap: 10px;
             }
             .x-scroll {
-                overflow-x: scroll;
+                overflow-x: auto;
+                overflow-y: hidden;
+                scroll-behavior: smooth;
+                overscroll-behavior-x: contain;
+            }
+            .x-scroll::-webkit-scrollbar {
+                display: none;
+            }
+            .x-scroll {
+                -webkit-overflow-scrolling: touch;
             }
             @media screen and (max-width: 600px) {
                 .gamemode {
@@ -104,27 +123,25 @@
             </div>
         </div>
         <div class="centerstage contents">
-            <h2>Featured Game Modes</h2>
+            <h2>Dimensions</h2>
             <div class="flex x-scroll">
                 <div class="container gamemode banner">
-                    <strong>Survival</strong>
-                    <img src="./logo.png" alt="">
+                    <strong>Overworld</strong>
+                    <div class="img-container">
+                        <img src="./survival.png" alt="">
+                    </div>
                 </div>
                 <div class="container gamemode banner">
-                    <strong>Hardcore</strong>
-                    <img src="./logo.png" alt="">
+                    <strong>Nether</strong>
+                    <div class="img-container">
+                        <img src="./survival.png" alt="">
+                    </div>
                 </div>
                 <div class="container gamemode banner">
-                    <strong>Lifesteal</strong>
-                    <img src="./logo.png" alt="">
-                </div>
-                <div class="container gamemode banner">
-                    <strong>Lifesteal</strong>
-                    <img src="./logo.png" alt="">
-                </div>
-                <div class="container gamemode banner">
-                    <strong>Lifesteal</strong>
-                    <img src="./logo.png" alt="">
+                    <strong>End</strong>
+                    <div class="img-container">
+                        <img src="./survival.png" alt="">
+                    </div>
                 </div>
             </div>
             <h2>Featured Players</h2>
@@ -140,11 +157,23 @@
             </div>
             <div class="container">
                 <strong>Hello World!</strong>
-                This website is under construction. Thank you for your patience.
+                Hello World
             </div>
             <div class="container">
-                Visit here to see the source code. <a href="https://github.com/patrpatl/patcat-website/">Github</a>a
+                Hello
             </div>
         </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                document.querySelectorAll('.x-scroll').forEach(function(el) {
+                    el.addEventListener('wheel', function(e) {
+                        if (e.deltaY !== 0) {
+                            e.preventDefault();
+                            el.scrollLeft += e.deltaY * 3;
+                        }
+                    }, { passive: false });
+                });
+            });
+        </script>
     </body>
 </html>
