@@ -94,15 +94,6 @@
                 transform: scale(1.1);
                 transition: transform 200ms ease;
             }
-            .player {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                min-width: 70px;
-                max-width: 90px;
-                height: fit-content;
-                gap: 10px;
-            }
             .player img {
                 width: calc(100%);
             }
@@ -134,6 +125,39 @@
             }
             .main img:hover {
                 transform: scale(1.1);
+                transition: ease 0.2s;
+            }
+            .player {
+                display: flex;
+                position: relative;
+                flex-direction: column;
+                align-items: center;
+                max-width: 120px;
+                height: fit-content;
+                gap: 10px;
+            }
+            .player img {
+                transition: transform ease 0.2s;
+            }
+            .player:hover img{
+                transform: scale(1.03);
+                transition: ease 0.2s;
+            }
+            .overlay {
+                position: absolute;
+                display: none;
+                background-color: lightgreen;
+                top: 0;
+                right: -160px;
+                width: 100%;
+                border-radius: 5px;
+                height: calc(100% - 20px);
+                z-index: 7;
+                transition: ease 0.2s;
+                padding: 10px;
+            }
+            .player:hover .overlay {
+                display: block;
                 transition: ease 0.2s;
             }
             @media screen and (max-width: 600px) {
@@ -189,16 +213,19 @@
             <h2>Featured Players</h2>
             <div class="flex x-scroll">
                 <div class="container player banner">
-                    <strong>patrpatl</strong>
-                    <img src="https://s.namemc.com/3d/skin/body.png?id=866315311fefe263&model=classic&theta=30&phi=21&time=90&width=400&height=800" alt="">
+                    <img src="https://s.namemc.com/3d/skin/body.png?id=866315311fefe263&model=classic&theta=30&phi=21&time=90&width=500&height=800" alt="">
+                    <div class="overlay">
+                        <strong>patrpatl</strong> <br>
+                        Owner <br>
+                        3,129 Kills <br>
+                        30123 XP
+                    </div>
                 </div>
                 <div class="container player banner">
-                    <strong>Steve</strong>
-                    <img src="https://s.namemc.com/3d/skin/body.png?id=63455d7069b397c2&model=classic&theta=30&phi=21&time=90&width=400&height=800" alt="">
+                    <img src="https://s.namemc.com/3d/skin/body.png?id=63455d7069b397c2&model=classic&theta=30&phi=21&time=90&width=500&height=800" alt="">
                 </div>
                 <div class="container player banner">
-                    <strong>Alex</strong>
-                    <img src="https://s.namemc.com/3d/skin/body.png?id=c178117c21bd0a1c&model=slim&theta=30&phi=21&time=90&width=400&height=800" alt="">
+                    <img src="https://s.namemc.com/3d/skin/body.png?id=c178117c21bd0a1c&model=slim&theta=30&phi=21&time=90&width=500&height=800" alt="">
                 </div>
             </div>
             <div class="container">
