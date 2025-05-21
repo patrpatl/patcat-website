@@ -85,13 +85,13 @@
                 object-fit: cover;
                 object-position: center;
                 display: block;
+                transition: transform 200ms ease;
+            }
+            .img-container img:hover {
+                transform: scale(1.1);
+                transition: transform 200ms ease;
             }
             .player {
-                /* Use background-size: cover to prevent stretching and maintain aspect ratio */
-                background: url('./overworld.png');
-                background-size: cover; /* changed from 100% 100% to cover */
-                background-position: center; /* center the background image */
-                background-repeat: no-repeat; /* prevent tiling */
                 display: flex;
                 flex-direction: column;
                 align-items: center;
@@ -99,13 +99,9 @@
                 max-width: 90px;
                 height: fit-content;
                 gap: 10px;
-                overflow: hidden;
             }
             .player img {
-                width: 100%;
-                object-fit: cover;
-                object-position: center;
-                display: block;
+                width: calc(100%);
             }
             .x-scroll {
                 overflow-x: auto;
