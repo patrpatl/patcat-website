@@ -87,12 +87,25 @@
                 display: block;
             }
             .player {
+                /* Use background-size: cover to prevent stretching and maintain aspect ratio */
+                background: url('./overworld.png');
+                background-size: cover; /* changed from 100% 100% to cover */
+                background-position: center; /* center the background image */
+                background-repeat: no-repeat; /* prevent tiling */
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 min-width: 70px;
-                max-width: 80px;
+                max-width: 90px;
+                height: fit-content;
                 gap: 10px;
+                overflow: hidden;
+            }
+            .player img {
+                width: 100%;
+                object-fit: cover;
+                object-position: center;
+                display: block;
             }
             .x-scroll {
                 overflow-x: auto;
@@ -128,31 +141,35 @@
                 <div class="container gamemode banner">
                     <strong>Overworld</strong>
                     <div class="img-container">
-                        <img src="./survival.png" alt="">
+                        <img src="./overworld.png" alt="">
                     </div>
                 </div>
                 <div class="container gamemode banner">
                     <strong>Nether</strong>
                     <div class="img-container">
-                        <img src="./survival.png" alt="">
+                        <img src="./nether.png" alt="">
                     </div>
                 </div>
                 <div class="container gamemode banner">
                     <strong>End</strong>
                     <div class="img-container">
-                        <img src="./survival.png" alt="">
+                        <img src="./end.png" alt="">
                     </div>
                 </div>
             </div>
             <h2>Featured Players</h2>
             <div class="flex x-scroll">
                 <div class="container player banner">
-                    <strong>Player1</strong>
-                    <img src="./logo.png" alt="">
+                    <strong>patrpatl</strong>
+                    <img src="https://s.namemc.com/3d/skin/body.png?id=866315311fefe263&model=classic&theta=30&phi=21&time=90&width=400&height=800" alt="">
                 </div>
                 <div class="container player banner">
-                    <strong>Player2</strong>
-                    <img src="./logo.png" alt="">
+                    <strong>Steve</strong>
+                    <img src="https://s.namemc.com/3d/skin/body.png?id=63455d7069b397c2&model=classic&theta=30&phi=21&time=90&width=400&height=800" alt="">
+                </div>
+                <div class="container player banner">
+                    <strong>Alex</strong>
+                    <img src="https://s.namemc.com/3d/skin/body.png?id=c178117c21bd0a1c&model=slim&theta=30&phi=21&time=90&width=400&height=800" alt="">
                 </div>
             </div>
             <div class="container">
