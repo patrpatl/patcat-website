@@ -112,6 +112,7 @@
             }
             .main {
                 overflow: hidden;
+                position: relative;
                 border-radius: 10px;
                 height: calc(100vh - 255px);
                 background-color: pink;
@@ -183,7 +184,32 @@
         </div>
         <div class="centerstage contents">
             <div class="main">
-                <img src="./nether.png" alt="">
+                <div class="floaty">
+                    <h1>Join the Chaos Here</h1>
+                    <code>Server IP: smp.patcat.pro</code>
+                </div>
+                <img src="./spawn.png" alt="">
+                <style>
+                    .floaty {
+                        align-items: center;
+                        justify-content: center;
+                        z-index: 1;
+                        color: white;
+                        /* background-color: lightblue; */
+                        position: absolute;
+                        top: 30%;
+                        left: 50%;
+                        width: 100%;
+                        transform: translate(-50%, -30%);
+                    }
+                    .floaty * {
+                        position: relative;
+                        margin: auto 10%;
+                    }
+                    .floaty code {
+                        font-family: 'Courier New', Courier, monospace
+                    }
+                </style>
             </div>
             <br>
             <h2>Dimensions</h2>
