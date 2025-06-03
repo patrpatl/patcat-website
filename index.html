@@ -11,9 +11,23 @@
         }
     </style>
     <link rel="stylesheet" href="layout.css">
+    <link rel="stylesheet" href="unsupported.css">
 </head>
 
 <body>
+    <div id="incompatible">
+        <div id="centerfloat">
+            <img class="tenor-gif-embed" src="https://media1.tenor.com/m/WvCBHOwqNkkAAAAd/tiny-playstation-sony.gif" alt="Tenor: Small PlayStation">
+            <strong style="width: 100%;"><p style="text-align: center;">Your device is too small for this website.</p></strong>
+            <button onclick="hideIncompatible()">Ignore Error</button>
+        </div>
+    </div>
+    <script>
+        function hideIncompatible() {
+            document.getElementById('incompatible').style.display = "none";
+            document.getElementsByClassName('body').style.display = "block";
+        }
+    </script>
     <div class="top-bar">
         <div class="centerstage">
             <img class="logo" src="./logo.png" alt="testing logo stuff">
@@ -23,9 +37,8 @@
     </div>
 
     <div class="centerstage contents">
-        <div class="container">
+        <div class="container notice">
             <strong>🌏 Server is offline to save energy resources.</strong>
-            Contact admin to play. (You'll probably play alone)
         </div>
         <div class="main">
             <div class="floaty">

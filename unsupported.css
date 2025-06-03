@@ -1,0 +1,43 @@
+        #incompatible {
+            background-color: lightyellow;
+            position: fixed;
+            z-index: 8;
+            height: 100vh;
+            width: 100%;
+            display: none;
+            align-items: center;
+            justify-content: center;
+        }
+        #incompatible #centerfloat {
+            position: fixed;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            width: 80%;
+            height: fit-content;
+            max-width: 190px;
+            /* background-color: pink; */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        #incompatible div button {
+            background-color: blue;
+            color: white;
+            padding: 10px 15px;
+            align-self: center;
+            border-radius: 8px;
+            border-color: yellow;
+        }
+        .tenor-gif-embed {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 18px;
+        }
+        @media screen and (max-width: 350px) {
+            #incompatible {
+                display: flex;
+            }
+        }

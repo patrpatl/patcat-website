@@ -179,19 +179,6 @@ body {
     transition: ease 0.2s;
 }
 
-@media screen and (max-width: 600px) {
-    .gamemode {
-        min-height: 200px;
-        min-width: 300px;
-        width: 100%;
-        max-width: calc(100% - 40px);
-    }
-
-    .main {
-        height: 45vh;
-    }
-}
-
 .floaty {
     align-items: center;
     justify-content: center;
@@ -212,4 +199,26 @@ body {
 
 .floaty code {
     font-family: 'Courier New', Courier, monospace
+}
+
+@media screen and (max-width: 600px) {
+    .gamemode {
+        min-height: 200px;
+        min-width: 300px;
+        width: 100%;
+        max-width: calc(100% - 40px);
+    }
+
+    .floaty h1 {
+        font-size: larger;
+    }
+    .floaty code {
+        font-size: small;
+    }
+    .main {
+        height: 45vh;
+    }
+    .notice {
+        font-size: smaller;
+    }
 }
