@@ -1,282 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>😻 patcat</title>
-        <style>
-            * {
-                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            }
-            body {
-                background: linear-gradient(45deg, lightblue, tomato, lightgreen);
-                background-size: 100% fit-content;
-                padding: 0;
-                margin: 0;
-            }
-            .top-bar {
-                background-color: white;
-                padding-top: 20px;
-                padding-bottom: 10px;
-                position: sticky;
-                top: 0px;
-                z-index: 7;
-            }
-            .top-bar .logo {
-                max-height: 50px;
-            }
-            .centerstage {
-                /* background-color: pink; */
-                position: relative;
-                left: 50%;
-                transform: translateX(-50%);
-                width: 1366px;
-                max-width: calc(100% - 30px);
-            }
-            .centerstage img {
-                height: 45px;
-            }
-            .contents {
-                margin-top: 15px;
-            }
-            .container {
-                border-radius: 5px;
-                background-color: white;
-                padding: 10px;
-                margin-bottom: 10px;
-            }
-            .flex {
-                display: flex;
-                flex-wrap: nowrap;
-                gap: 10px
-            }
-            .flex .container {
-                flex-grow: 1;
-            }
-            .banner img {
-                width: 60px;
-                height: auto;
-                /* outline: auto; */
-            }
-            .gamemode {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                min-height: 250px;
-                min-width: 300px;
-                width: 100%;
-                max-width: calc(100% - 40px);
-                gap: 10px;
-                max-height: 200px;
-                overflow: hidden;
-                padding: 0;
-            }
-            .gamemode strong {
-                margin-top: 10px;
-            }
-            .img-container {
-                overflow: hidden;
-                position: relative;
-                width: 100%;
-                height: 100%;
-                align-items: center;
-                justify-content: center;
-            }
-            .img-container img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                object-position: center;
-                display: block;
-                transition: transform 200ms ease;
-            }
-            .img-container img:hover {
-                transform: scale(1.1);
-                transition: transform 200ms ease;
-            }
-            .player img {
-                width: calc(100%);
-            }
-            .x-scroll {
-                overflow-x: auto;
-                overflow-y: hidden;
-                scroll-behavior: smooth;
-                overscroll-behavior-x: contain;
-            }
-            .x-scroll::-webkit-scrollbar {
-                display: none;
-            }
-            .x-scroll {
-                border-radius: 5px;
-                -webkit-overflow-scrolling: touch;
-            }
-            .main {
-                overflow: hidden;
-                position: relative;
-                border-radius: 10px;
-                height: calc(100vh - 255px);
-                background-color: pink;
-            }
-            .main img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transform: scale(1.05);
-                transition: ease 0.2s;
-            }
-            .main img:hover {
-                transform: scale(1.1);
-                transition: ease 0.2s;
-            }
-            .player {
-                display: flex;
-                position: relative;
-                flex-direction: column;
-                align-items: center;
-                max-width: 120px;
-                height: fit-content;
-                gap: 10px;
-            }
-            .player img {
-                transition: transform ease 0.2s;
-            }
-            .player:hover img{
-                transform: scale(1.03);
-                transition: ease 0.2s;
-            }
-            .overlay {
-                position: absolute;
-                display: none;
-                background-color: lightgreen;
-                top: 0;
-                right: -160px;
-                width: 100%;
-                border-radius: 5px;
-                height: calc(100% - 20px);
-                z-index: 7;
-                transition: ease 0.2s;
-                padding: 10px;
-            }
-            .player:hover .overlay {
-                display: block;
-                transition: ease 0.2s;
-            }
-            @media screen and (max-width: 600px) {
-                .gamemode {
-                    min-height: 200px;
-                    min-width: 300px;
-                    width: 100%;
-                    max-width: calc(100% - 40px);
-                }
-                .main {
-                    height: 45vh;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <div class="top-bar">
-            <div class="centerstage">
-                <img class="logo" src="./logo.png" alt="testing logo stuff">
-            </div>
-        </div>
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>😻 patcat</title>
+    <style>
+        * {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+    </style>
+    <link rel="stylesheet" href="layout.css">
+</head>
+
+<body>
+    <div class="top-bar">
+        <div class="centerstage">
+            <img class="logo" src="./logo.png" alt="testing logo stuff">
         </div>
-        <div class="centerstage contents">
-            <div class="main">
-                <div class="floaty">
-                    <h1>Join the Chaos Here</h1>
-                    <code>Server IP: smp.patcat.pro</code>
-                </div>
-                <img src="./spawn.png" alt="">
-                <style>
-                    .floaty {
-                        align-items: center;
-                        justify-content: center;
-                        z-index: 1;
-                        color: white;
-                        /* background-color: lightblue; */
-                        position: absolute;
-                        top: 30%;
-                        left: 50%;
-                        width: 100%;
-                        transform: translate(-50%, -30%);
-                    }
-                    .floaty * {
-                        position: relative;
-                        margin: auto 10%;
-                    }
-                    .floaty code {
-                        font-family: 'Courier New', Courier, monospace
-                    }
-                </style>
+    </div>
+
+    </div>
+
+    <div class="centerstage contents">
+        <div class="container">
+            <strong>🌏 Server is offline to save energy resources.</strong>
+            Contact admin to play. (You'll probably play alone)
+        </div>
+        <div class="main">
+            <div class="floaty">
+                <h1>Join the Chaos Here</h1>
+                <code>Server IP: smp.patcat.pro</code>
             </div>
-            <br>
-            <h2>Dimensions</h2>
-            <div class="flex x-scroll">
-                <div class="container gamemode banner">
-                    <strong>Overworld</strong>
-                    <div class="img-container">
-                        <img src="./overworld.png" alt="">
-                    </div>
-                </div>
-                <div class="container gamemode banner">
-                    <strong>Nether</strong>
-                    <div class="img-container">
-                        <img src="./nether.png" alt="">
-                    </div>
-                </div>
-                <div class="container gamemode banner">
-                    <strong>End</strong>
-                    <div class="img-container">
-                        <img src="./end.png" alt="">
-                    </div>
-                </div>
-                <div class="container gamemode banner">
-                    <strong>Aether</strong>
-                    <div class="img-container">
-                        <img src="https://staticg.sportskeeda.com/editor/2023/09/26afe-16950385186813-1920.jpg" alt="">
-                    </div>
+            <img src="./spawn.png" alt="">
+        </div>
+        <br>
+        <h2>Dimensions</h2>
+        <div class="flex x-scroll">
+            <div class="container gamemode banner">
+                <strong>Overworld</strong>
+                <div class="img-container">
+                    <img src="./overworld.png" alt="">
                 </div>
             </div>
-            <h2>Featured Players</h2>
-            <div class="flex x-scroll">
-                <div class="container player banner">
-                    <img src="https://s.namemc.com/3d/skin/body.png?id=866315311fefe263&model=classic&theta=30&phi=21&time=90&width=500&height=800" alt="">
-                    <div class="overlay">
-                        <strong>patrpatl</strong> <br>
-                        Owner <br>
-                        3,129 Kills <br>
-                        30123 XP
-                    </div>
-                </div>
-                <div class="container player banner">
-                    <img src="https://s.namemc.com/3d/skin/body.png?id=63455d7069b397c2&model=classic&theta=30&phi=21&time=90&width=500&height=800" alt="">
-                </div>
-                <div class="container player banner">
-                    <img src="https://s.namemc.com/3d/skin/body.png?id=c178117c21bd0a1c&model=slim&theta=30&phi=21&time=90&width=500&height=800" alt="">
+            <div class="container gamemode banner">
+                <strong>Nether</strong>
+                <div class="img-container">
+                    <img src="./nether.png" alt="">
                 </div>
             </div>
-            <div class="container">
-                <strong>Hello World!</strong>
-                Hello World
+            <div class="container gamemode banner">
+                <strong>End</strong>
+                <div class="img-container">
+                    <img src="./end.png" alt="">
+                </div>
             </div>
-            <div class="container">
-                Hello
+            <div class="container gamemode banner">
+                <strong>Aether</strong>
+                <div class="img-container">
+                    <img src="https://staticg.sportskeeda.com/editor/2023/09/26afe-16950385186813-1920.jpg" alt="">
+                </div>
             </div>
         </div>
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                document.querySelectorAll('.x-scroll').forEach(function(el) {
-                    el.addEventListener('wheel', function(e) {
-                        // Only capture scroll if content overflows horizontally
-                        if (el.scrollWidth > el.clientWidth && e.deltaY !== 0) {
-                            e.preventDefault();
-                            el.scrollLeft += e.deltaY * 3;
-                        }
-                    }, { passive: false });
-                });
-            });
-        </script>
-    </body>
+        <h2>Featured Players</h2>
+        <div class="flex x-scroll">
+            <div class="container player banner">
+                <img src="https://s.namemc.com/3d/skin/body.png?id=866315311fefe263&model=classic&theta=30&phi=21&time=90&width=500&height=800"
+                    alt="">
+                <div class="popup">
+                    <strong>patrpatl</strong> <br>
+                    Owner <br>
+                    3,129 Kills <br>
+                    30123 XP
+                </div>
+            </div>
+            <div class="container player banner">
+                <img src="https://s.namemc.com/3d/skin/body.png?id=63455d7069b397c2&model=classic&theta=30&phi=21&time=90&width=500&height=800"
+                    alt="">
+            </div>
+            <div class="container player banner">
+                <img src="https://s.namemc.com/3d/skin/body.png?id=c178117c21bd0a1c&model=slim&theta=30&phi=21&time=90&width=500&height=800"
+                    alt="">
+            </div>
+        </div>
+    </div>
+    <script src="scroll.js"></script>
+</body>
 </html>
