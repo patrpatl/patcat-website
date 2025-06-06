@@ -171,9 +171,9 @@
                             <img class="img-fluid rounded shadow-sm mb-2" src="${skinUrl}" alt="Skin" style="max-width:120px;">
                         </div>
                         <div class="d-flex flex-column align-items-center align-items-md-end">
-                            <a href="${skinUrl}" download="skin.png" class="btn btn-success mt-2 w-100">
+                            <button type="button" class="btn btn-success mt-2 w-100" id="downloadSkinBtn">
                                 <span class="material-icons align-middle me-1">file_download</span>Download Skin
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -187,15 +187,65 @@
                                 <img class="img-fluid rounded shadow-sm mb-2" src="${capeUrl}" alt="Cape" style="max-width:80px;">
                             </div>
                             <div class="d-flex flex-column align-items-center align-items-md-end">
-                                <a href="${capeUrl}" download="cape.png" class="btn btn-info mt-2 w-100">
+                                <button type="button" class="btn btn-info mt-2 w-100" id="downloadCapeBtn">
                                     <span class="material-icons align-middle me-1">file_download</span>Download Cape
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
                     `;
                 }
                 output.innerHTML = html;
+
+                // Download Skin Button
+                const downloadSkinBtn = document.getElementById('downloadSkinBtn');
+                if (downloadSkinBtn && skinUrl) {
+                    downloadSkinBtn.addEventListener('click', function() {
+                        fetch(skinUrl)
+                            .then(res => res.blob())
+                            .then(blob => {
+                                const url = URL.createObjectURL(blob);
+                                const a = document.createElement('a');
+                                a.href = url;
+                                // Use the exact username casing from Mojang API if available
+                                let downloadName = 'skin';
+                                if (userData && userData.name) {
+                                    downloadName = userData.name;
+                                }
+                                a.download = downloadName + '.png';
+                                document.body.appendChild(a);
+                                a.click();
+                                setTimeout(() => {
+                                    URL.revokeObjectURL(url);
+                                    a.remove();
+                                }, 100);
+                            });
+                    });
+                }
+                // Download Cape Button
+                const downloadCapeBtn = document.getElementById('downloadCapeBtn');
+                if (downloadCapeBtn && capeUrl) {
+                    downloadCapeBtn.addEventListener('click', function() {
+                        fetch(capeUrl)
+                            .then(res => res.blob())
+                            .then(blob => {
+                                const url = URL.createObjectURL(blob);
+                                const a = document.createElement('a');
+                                a.href = url;
+                                let downloadName = 'cape';
+                                if (userData && userData.name) {
+                                    downloadName = userData.name + '-cape';
+                                }
+                                a.download = downloadName + '.png';
+                                document.body.appendChild(a);
+                                a.click();
+                                setTimeout(() => {
+                                    URL.revokeObjectURL(url);
+                                    a.remove();
+                                }, 100);
+                            });
+                    });
+                }
             } catch (err) {
                 output.innerHTML = '';
                 if (err.name === 'TypeError' && err.message.includes('Failed to fetch')) {
