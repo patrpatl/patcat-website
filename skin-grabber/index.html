@@ -150,8 +150,15 @@
                 const prop = profileData.properties && profileData.properties[0];
                 if (!prop || !prop.value) throw new Error('No skin data found.');
                 const playerData = JSON.parse(atob(prop.value));
-                const skinUrl = playerData.textures && playerData.textures.SKIN ? playerData.textures.SKIN.url : null;
-                const capeUrl = playerData.textures && playerData.textures.CAPE ? playerData.textures.CAPE.url : null;
+                let skinUrl = playerData.textures && playerData.textures.SKIN ? playerData.textures.SKIN.url : null;
+                let capeUrl = playerData.textures && playerData.textures.CAPE ? playerData.textures.CAPE.url : null;
+                // Ensure URLs use https
+                if (skinUrl && skinUrl.startsWith('http://')) {
+                    skinUrl = skinUrl.replace('http://', 'https://');
+                }
+                if (capeUrl && capeUrl.startsWith('http://')) {
+                    capeUrl = capeUrl.replace('http://', 'https://');
+                }
                 if (!skinUrl) {
                     output.innerHTML = '<div class="alert alert-warning text-center">No skin found.</div>';
                     return;
