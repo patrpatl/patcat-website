@@ -1,0 +1,12 @@
+.centerstage {
+    /* background-color: pink; */
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1366px;
+    max-width: calc(100% - 30px);
+}
+
+.centerstage img {
+    height: 100%px;
+}

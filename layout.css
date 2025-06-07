@@ -5,32 +5,6 @@ body {
     margin: 0;
 }
 
-.top-bar {
-    background-color: white;
-    padding-top: 20px;
-    padding-bottom: 10px;
-    position: sticky;
-    top: 0px;
-    z-index: 7;
-}
-
-.top-bar .logo {
-    max-height: 50px;
-}
-
-.centerstage {
-    /* background-color: pink; */
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1366px;
-    max-width: calc(100% - 30px);
-}
-
-.centerstage img {
-    height: 45px;
-}
-
 .contents {
     margin-top: 15px;
     margin-bottom: 10px;
