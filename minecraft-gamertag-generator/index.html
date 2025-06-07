@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Gamertag Generator Tool</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="avatar.js"></script>
+    <script src="carousell.js"></script>
+    <script src="responsive.js"></script>
+</head>
+
+<style>
+    body {
+        background: url('../nether.png');
+        background-size: cover;
+        background-position: center;
+        transition: ease 2s;
+    }
+</style>
+
+<body class="bg-light">
+
+    <!-- Top Bar -->
+    <div class="top-bar" style="position: fixed; width: 100%; z-index: 1030;">
+        <link rel="stylesheet" href="../topbar.css">
+        <link rel="stylesheet" href="../centerstage.css">
+        <div class="centerstage">
+            <img class="logo" src="../logo.png" alt="Logo">
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container d-flex justify-content-center align-items-center min-vh-100" style="padding-top: 80px;">
+
+        <div class="card shadow p-4" style="max-width: 420px; width: 100%;">
+
+            <div class="d-flex justify-content-center mb-4">
+                <img id="avatarImg" src="https://crafatar.com/avatars/8667ba71b85a4004af54457a9734eed7?size=128&overlay" alt="Steve" class="rounded-circle border border-3 border-white shadow" style="width:100px;height:100px;margin-top:-64px;background:#fff;">
+            </div>
+
+            <h4 class="text-center fw-bold mb-3" id="bigcenter" style="font-family: 'Montserrat', Arial, sans-serif; color: #4e54c8;">Minecraft Gamertag Generator</h4>
+
+            <form id="gamertagForm" autocomplete="off">
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Choose at least one word from each group:</label>
+                    <div class="row">
+                        <div class="col-12 mb-2">
+                            <div class="fw-semibold mb-1">Primary Words</div>
+                            <div id="wordCheckboxes1">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word1-Epic" value="Epic">
+                                    <label class="form-check-label" for="word1-Epic">Epic</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word1-Shadow" value="Shadow">
+                                    <label class="form-check-label" for="word1-Shadow">Shadow</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word1-Pixel" value="Pixel">
+                                    <label class="form-check-label" for="word1-Pixel">Pixel</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word1-Dragon" value="Dragon">
+                                    <label class="form-check-label" for="word1-Dragon">Dragon</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word1-Ninja" value="Ninja">
+                                    <label class="form-check-label" for="word1-Ninja">Ninja</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word1-Legend" value="Legend">
+                                    <label class="form-check-label" for="word1-Legend">Legend</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word1-Techno" value="Techno">
+                                    <label class="form-check-label" for="word1-Techno">Techno</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word1-Prime" value="Prime">
+                                    <label class="form-check-label" for="word1-Prime">Prime</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word1-Super" value="Super">
+                                    <label class="form-check-label" for="word1-Super">Super</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word1-Cracked" value="Cracked">
+                                    <label class="form-check-label" for="word1-Cracked">Cracked</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word1-Mister" value="Mister">
+                                    <label class="form-check-label" for="word1-Mister">Mister</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word1-Hyper" value="Hyper">
+                                    <label class="form-check-label" for="word1-Hyper">Hyper</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word1-The" value="The">
+                                    <label class="form-check-label" for="word1-The">The</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word1-Im" value="Im">
+                                    <label class="form-check-label" for="word1-Im">Im</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word1-Speedy" value="Speedy">
+                                    <label class="form-check-label" for="word1-Speedy">Speedy</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 mb-2">
+                            <div class="fw-semibold mb-1">Ending Words</div>
+                            <div id="wordCheckboxes2">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word2-Crafter" value="Crafter">
+                                    <label class="form-check-label" for="word2-Crafter">Crafter</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word2-Miner" value="Miner">
+                                    <label class="form-check-label" for="word2-Miner">Miner</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word2-Beast" value="Beast">
+                                    <label class="form-check-label" for="word2-Beast">Beast</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word2-Wizard" value="Wizard">
+                                    <label class="form-check-label" for="word2-Wizard">Wizard</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word2-Knight" value="Knight">
+                                    <label class="form-check-label" for="word2-Knight">Knight</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word2-Fighter" value="Fighter">
+                                    <label class="form-check-label" for="word2-Fighter">Fighter</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word2-Monster" value="Monster">
+                                    <label class="form-check-label" for="word2-Monster">Monster</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word2-Frags" value="Frags">
+                                    <label class="form-check-label" for="word2-Frags">Frags</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word2-Real" value="Real">
+                                    <label class="form-check-label" for="word2-Real">Real</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word2-Combos" value="Combos">
+                                    <label class="form-check-label" for="word2-Combos">Combos</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word2-Hammer" value="Hammer">
+                                    <label class="form-check-label" for="word2-Hammer">Hammer</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word2-Banner" value="Banner">
+                                    <label class="form-check-label" for="word2-Banner">Banner</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word2-Lightning" value="Lightning">
+                                    <label class="form-check-label" for="word2-Lightning">Lightning</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="checkbox" id="word2-Fire" value="Fire">
+                                    <label class="form-check-label" for="word2-Fire">Fire</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label fw-semibold" for="customWord">Add a custom word (optional):</label>
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="customWord" placeholder="Your custom word">
+                        <button class="btn btn-outline-success" type="button" id="addToPrimaryBtn">
+                            <span class="material-icons align-middle me-1">arrow_upward</span>Primary
+                        </button>
+                        <button class="btn btn-outline-info" type="button" id="addToEndingBtn">
+                            <span class="material-icons align-middle me-1">arrow_downward</span>Ending
+                        </button>
+                    </div>
+                </div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-primary flex-fill" type="submit">
+                        <span class="material-icons align-middle">auto_fix_high</span>
+                        Generate Gamertag
+                    </button>
+                    <button id="clearBtn" class="btn btn-outline-secondary flex-fill" type="button">
+                        <span class="material-icons align-middle me-1">delete</span>Clear
+                    </button>
+                </div>
+            </form>
+            <div id="output" class="mt-3"></div>
+            <div id="availabilityResult" class="mt-2"></div>
+            <div id="gamertagHistory" class="mt-2"></div>
+            <div id="error" class="text-danger mt-3 fw-semibold"></div>
+        </div>
+    </div>
+    <script>
+    // --- Feature 1: Show all available gamertags ---
+    async function autoGenerateGamertag() {
+        document.getElementById('error').textContent = '';
+        document.getElementById('output').innerHTML = '';
+        document.getElementById('availabilityResult').innerHTML = '';
+        document.getElementById('gamertagHistory').innerHTML = '';
+
+        if (!validateCheckboxGroups()) {
+            document.getElementById('error').textContent = 'Please select at least one word from each group.';
+            return;
+        }
+
+        const word1Checked = Array.from(document.querySelectorAll('#wordCheckboxes1 input:checked')).map(cb => cb.value);
+        const word2Checked = Array.from(document.querySelectorAll('#wordCheckboxes2 input:checked')).map(cb => cb.value);
+
+        let tried = [];
+        let available = [];
+
+        document.getElementById('output').innerHTML = `<div>Checking all combinations for availability...</div>`;
+        document.getElementById('availabilityResult').innerHTML = '';
+
+        for (let p of word1Checked) {
+            for (let s of word2Checked) {
+                let gamertag = p + s;
+                tried.push(gamertag);
+                let isAvail = await checkAvailability(gamertag);
+                if (isAvail) {
+                    available.push(gamertag);
+                }
+            }
+        }
+
+        let outputHtml = '';
+        if (available.length > 0) {
+            outputHtml = `<div class="fw-bold">Available Gamertags:</div>`;
+            outputHtml += `<div class="mt-2">` + available.map(gt => `<span class="badge bg-primary me-1">${gt}</span>`).join('') + `</div>`;
+            document.getElementById('availabilityResult').innerHTML = `<span class="badge bg-success">Some available!</span>`;
+        } else {
+            outputHtml = `<div class="fw-bold">No available gamertag found. Tried: <span class="text-secondary">${tried.join(', ')}</span></div>`;
+            document.getElementById('availabilityResult').innerHTML = `<span class="badge bg-danger">None available</span>`;
+        }
+        document.getElementById('output').innerHTML = outputHtml;
+    }
+
+    // Listen for checkbox changes for auto-generation
+    // Debounce function to limit how often autoGenerateGamertag runs
+    function debounce(fn, delay) {
+        let timeout;
+        return function(...args) {
+            if (timeout) clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                timeout = null;
+                fn.apply(this, args);
+            }, delay);
+        };
+    }
+    const debouncedAutoGenerateGamertag = debounce(autoGenerateGamertag, 600);
+
+    document.querySelectorAll('#wordCheckboxes1 input, #wordCheckboxes2 input').forEach(cb => {
+        cb.addEventListener('change', debouncedAutoGenerateGamertag);
+    });
+
+    // --- Feature 2: Add custom word with Primary/Ending buttons ---
+    function addCustomWordToGroup(group) {
+        const custom = document.getElementById('customWord').value.trim();
+        if (!custom) return;
+
+        // Prevent duplicates
+        const groupId = group === "primary" ? "wordCheckboxes1" : "wordCheckboxes2";
+        if (document.querySelector(`#${groupId} input[value="${custom}"]`)) {
+            document.getElementById('customWord').value = '';
+            return;
+        }
+
+        // Create new checkbox
+        const div = document.createElement('div');
+        div.className = "form-check form-check-inline";
+        const id = (group === "primary" ? "word1-" : "word2-") + custom.replace(/\s+/g, '');
+        div.innerHTML = `
+            <input class="form-check-input" type="checkbox" id="${id}" value="${custom}" checked>
+            <label class="form-check-label" for="${id}">${custom}</label>
+        `;
+        document.getElementById(groupId).appendChild(div);
+
+        // Listen for auto-generation on new checkbox
+        div.querySelector('input').addEventListener('change', autoGenerateGamertag);
+
+        document.getElementById('customWord').value = '';
+        autoGenerateGamertag();
+    }
+
+    document.getElementById('addToPrimaryBtn').addEventListener('click', function() {
+        addCustomWordToGroup("primary");
+    });
+    document.getElementById('addToEndingBtn').addEventListener('click', function() {
+        addCustomWordToGroup("ending");
+    });
+
+    // Keep form submit for manual generation (optional)
+    document.getElementById('gamertagForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        autoGenerateGamertag();
+    });
+
+    document.getElementById('clearBtn').addEventListener('click', function() {
+        document.querySelectorAll('#wordCheckboxes1 input, #wordCheckboxes2 input').forEach(cb => cb.checked = false);
+        // Remove custom words
+        document.querySelectorAll('#wordCheckboxes1 input, #wordCheckboxes2 input').forEach(cb => {
+            if (![
+                'Epic','Shadow','Pixel','Dragon','Ninja','Legend','Techno','Prime','Super','Cracked','Mister','Hyper','The','Im','Speedy',
+                'Crafter','Miner','Beast','Wizard','Knight','Fighter','Monster','Frags','Real','Combos','Hammer','Banner','Lightning','Fire'
+            ].includes(cb.value)) {
+                cb.parentElement.remove();
+            }
+        });
+        if (window.lastCheckedGamertag) {
+            window.lastCheckedGamertag = null;
+        }
+        document.getElementById('customWord').value = '';
+        document.getElementById('output').innerHTML = '';
+        document.getElementById('availabilityResult').innerHTML = '';
+        document.getElementById('error').textContent = '';
+        // Optionally re-check defaults
+        document.querySelector('#word1-Epic').checked = true;
+        document.querySelector('#word2-Crafter').checked = true;
+        autoGenerateGamertag();
+    });
+
+    // Optionally, check at least one checkbox by default for usability
+    document.querySelector('#word1-Epic').checked = true;
+    document.querySelector('#word2-Crafter').checked = true;
+    // Initial auto-generate
+    autoGenerateGamertag();
+
+    // --- Mojang API availability check via corsproxy.io ---
+
+    // --- Prevent rechecking already checked combinations ---
+    // Store checked combinations in a Set
+    let checkedCombinations = new Set();
+
+    // (No-op: do not reset checkedCombinations)
+
+    // Listen for changes to reset checked combinations
+    document.querySelectorAll('#wordCheckboxes1 input, #wordCheckboxes2 input').forEach(cb => {
+        cb.addEventListener('change', resetCheckedCombinations);
+    });
+
+    // Also reset when clearing
+    document.getElementById('clearBtn').addEventListener('click', resetCheckedCombinations);
+
+    // skip already checked combos
+    // (Removed duplicate/conflicting autoGenerateGamertag function here)
+    async function checkAvailability(gamertag) {
+        // Mojang API: https://api.mojang.com/users/profiles/minecraft/<username>
+        // If 204 or 404, it's available. If 200, it's taken.
+        const url = `https://corsproxy.io/?https://api.mojang.com/users/profiles/minecraft/${encodeURIComponent(gamertag)}`;
+        try {
+            // Try fetch first
+            if (window.fetch) {
+                const res = await fetch(url, { method: 'GET' });
+                if (res.status === 204 || res.status === 404) {
+                    return true; // Available
+                }
+                if (res.status === 200) {
+                    return false; // Taken
+                }
+                return false;
+            } else {
+                // Fallback to XMLHttpRequest
+                return await new Promise((resolve) => {
+                    const xhr = new XMLHttpRequest();
+                    xhr.open('GET', url);
+                    xhr.onreadystatechange = function () {
+                        if (xhr.readyState === 4) {
+                            if (xhr.status === 204 || xhr.status === 404) {
+                                resolve(true);
+                            } else if (xhr.status === 200) {
+                                resolve(false);
+                            } else {
+                                resolve(false);
+                            }
+                        }
+                    };
+                    xhr.onerror = function () {
+                        resolve(false);
+                    };
+                    xhr.send();
+                });
+            }
+        } catch (e) {
+            // On error, treat as unavailable
+            return false;
+        }
+    }
+
+    // Ensure at least one checkbox is checked in each group
+    function validateCheckboxGroups() {
+        const word1Checked = document.querySelectorAll('#wordCheckboxes1 input:checked').length;
+        const word2Checked = document.querySelectorAll('#wordCheckboxes2 input:checked').length;
+        return word1Checked > 0 && word2Checked > 0;
+    }
+    </script>
+
+    <!-- Warning Popup Modal -->
+    <div class="modal fade" id="warningModal" tabindex="-1" aria-labelledby="warningModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-warning">
+                <div class="modal-header bg-warning-subtle">
+                    <h5 class="modal-title" id="warningModalLabel">
+                        <span class="material-icons align-middle me-1 text-warning">warning</span>
+                        Warning
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    This tool uses unaffiliated third-party APIs such as Corsproxy and Crafatar and is not affiliated nor approved by Mojang or Microsoft.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">I Understand</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
