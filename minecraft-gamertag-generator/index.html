@@ -113,6 +113,18 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold" for="customWord">Add a custom word (optional):</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control" id="customWord" placeholder="Your custom word">
+                                <button class="btn btn-outline-success" type="button" id="addToPrimaryBtn">
+                                    <span class="material-icons align-middle me-1">arrow_upward</span>
+                                </button>
+                                <button class="btn btn-outline-info" type="button" id="addToEndingBtn">
+                                    <span class="material-icons align-middle me-1">arrow_downward</span>
+                                </button>
+                            </div>
+                        </div>
                         <div class="col-12 mb-2">
                             <div class="fw-semibold mb-1">Ending Words</div>
                             <div id="wordCheckboxes2">
@@ -176,18 +188,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label fw-semibold" for="customWord">Add a custom word (optional):</label>
-                    <div class="input-group">
-                        <input type="text" class="form-control" id="customWord" placeholder="Your custom word">
-                        <button class="btn btn-outline-success" type="button" id="addToPrimaryBtn">
-                            <span class="material-icons align-middle me-1">arrow_upward</span>Primary
-                        </button>
-                        <button class="btn btn-outline-info" type="button" id="addToEndingBtn">
-                            <span class="material-icons align-middle me-1">arrow_downward</span>Ending
-                        </button>
-                    </div>
-                </div>
                 <div class="d-flex gap-2">
                     <button class="btn btn-primary flex-fill" type="submit">
                         <span class="material-icons align-middle">auto_fix_high</span>
@@ -206,6 +206,11 @@
     </div>
     <script>
     // --- Feature 1: Show all available gamertags ---
+    // Store checked gamertags and their availability
+    if (!window.checkedGamertagsCache) {
+        window.checkedGamertagsCache = {};
+    }
+
     async function autoGenerateGamertag() {
         document.getElementById('error').textContent = '';
         document.getElementById('output').innerHTML = '';
@@ -230,7 +235,17 @@
             for (let s of word2Checked) {
                 let gamertag = p + s;
                 tried.push(gamertag);
+
+                // Check cache first
+                if (window.checkedGamertagsCache.hasOwnProperty(gamertag)) {
+                    if (window.checkedGamertagsCache[gamertag]) {
+                        available.push(gamertag);
+                    }
+                    continue;
+                }
+
                 let isAvail = await checkAvailability(gamertag);
+                window.checkedGamertagsCache[gamertag] = isAvail;
                 if (isAvail) {
                     available.push(gamertag);
                 }
@@ -249,7 +264,6 @@
         document.getElementById('output').innerHTML = outputHtml;
     }
 
-    // Listen for checkbox changes for auto-generation
     // Debounce function to limit how often autoGenerateGamertag runs
     function debounce(fn, delay) {
         let timeout;
@@ -263,6 +277,7 @@
     }
     const debouncedAutoGenerateGamertag = debounce(autoGenerateGamertag, 600);
 
+    // Listen for checkbox changes for auto-generation
     document.querySelectorAll('#wordCheckboxes1 input, #wordCheckboxes2 input').forEach(cb => {
         cb.addEventListener('change', debouncedAutoGenerateGamertag);
     });
@@ -337,7 +352,8 @@
     document.querySelector('#word1-Epic').checked = true;
     document.querySelector('#word2-Crafter').checked = true;
     // Initial auto-generate
-    autoGenerateGamertag();
+
+    // autoGenerateGamertag();
 
     // --- Mojang API availability check via corsproxy.io ---
 
