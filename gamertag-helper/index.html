@@ -34,6 +34,10 @@
     </div>
 
     <!-- Main Content -->
+    <div id="403msg" class="card p-2" style="position: absolute; width: 600px; top: 80px; left: 50%; transform: translate(-50%); font-size: small; z-index: 7;" hidden>
+        This is a message that shows up when error 403 is returned through corsproxy. This means that the request is blocked by either Corsproxy, Microsoft or Mojang.
+    </div>
+
     <div class="container d-flex justify-content-center min-vh-100">
 
         <div class="card shadow p-4" style="margin: 160px 0 80px 0; max-width: 600px; width: 100%; height: fit-content;">
@@ -157,8 +161,8 @@
                 </div>
                 <div class="d-flex gap-2">
                     <button class="btn btn-primary flex-fill" type="submit">
-                        <span class="material-icons align-middle">auto_fix_high</span>
-                        Generate Gamertag
+                        <span class="material-icons align-middle">refresh</span>
+                        Refresh
                     </button>
                     <button id="clearBtn" class="btn btn-outline-secondary flex-fill" type="button">
                         <span class="material-icons align-middle me-1">delete</span>Clear
@@ -379,6 +383,14 @@
                 if (res.status === 204 || res.status === 404) {
                     return true; // Available
                 }
+
+                if (res.status === 403 || res.status === 404) {
+                    document.getElementById('403msg').hidden = false;
+                    setTimeout(()=>{
+                        document.getElementById('403msg').hidden = true;
+                    }, 10000);
+                }
+
                 if (res.status === 200) {
                     return false; // Taken
                 }
@@ -406,7 +418,12 @@
                 });
             }
         } catch (e) {
-            // On error, treat as unavailable
+            // On error, treat as unavailable but do NOT cache this gamertag
+            document.getElementById('error').textContent = "error fetching from proxy? timed out";
+            // Remove from cache if present (ensure not saved as unavailable)
+            if (window.checkedGamertagsCache && window.checkedGamertagsCache.hasOwnProperty(gamertag)) {
+                delete window.checkedGamertagsCache[gamertag];
+            }
             return false;
         }
     }
