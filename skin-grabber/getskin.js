@@ -30,6 +30,12 @@ document.addEventListener('DOMContentLoaded', function () {
             if (userRes.status === 429) {
                 throw new Error('CORSProxy limit reached. Please wait a few minutes before trying again.');
             }
+            if (userRes.status === 403) {
+                    document.getElementById('403msg').hidden = false;
+                    setTimeout(()=>{
+                        document.getElementById('403msg').hidden = true;
+                    }, 10000);
+            }
             if (!userRes.ok) throw new Error('User not found');
             const userData = await userRes.json().catch(() => null);
             if (!userData || userData.error || !userData.id) throw new Error('User not found');
