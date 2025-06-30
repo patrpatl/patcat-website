@@ -31,6 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
             fileList.forEach(element => {
                 const newRow = document.createElement('tr');
                 const rowPath = document.createElement('td');
+                const rowDom = document.createElement('td');
                 const rowComp = document.createElement('td');
                 const rowDls = document.createElement('td');
                 const rowFS = document.createElement('td');
@@ -48,6 +49,30 @@ document.addEventListener('DOMContentLoaded', function () {
                     rowComp.innerHTML = "N/A";
                 }
 
+                // Extract domain from downloads link
+                try {
+                    const url = new URL(element.downloads);
+                    rowDom.innerHTML = url.hostname;
+                } catch (e) {
+                    rowDom.innerHTML = "N/A";
+                }
+                if (rowDom.innerHTML != 'cdn.modrinth.com') {
+                    newRow.classList.add('table-warning');
+                    rowDom.classList.add("text-danger");
+                    rowDls.addEventListener("click", function (e) {
+                        e.preventDefault();
+                        if (confirm(
+                            "Warning!\n\n" +
+                            "You are about to download from an untrusted domain: " + rowDom.innerHTML + ".\n" +
+                            "This could put your computer at risk. Are you sure you want to continue?"
+                        )) {
+                            if (confirm("Proceed to download from this untrusted domain?")) {
+                                window.open(element.downloads, '_blank');
+                            }
+                        }
+                    });
+                }
+
                 rowFS.innerHTML = formatFileSize(element.fileSize);
 
                 rowDls.innerHTML = `<a class="btn" href="${element.downloads}" target="_blank">
@@ -55,6 +80,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 </a>`;
 
                 newRow.appendChild(rowPath);
+                newRow.appendChild(rowDom);
                 newRow.appendChild(rowComp);
                 newRow.appendChild(rowFS);
                 newRow.appendChild(rowDls);
