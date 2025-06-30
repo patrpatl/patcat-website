@@ -71,29 +71,33 @@
                         <label for="jsonFileInput" class="form-label">Upload JSON File</label>
                         <input type="file" class="form-control" id="jsonFileInput" accept=".json">
                         <br>
-                        <div class="card p-3 pb-4 d-block">
+                        <div class="card p-3 pb-4 d-block" style="font-size: small;">
                             <h4>Important</h4>
                             <p>Please read the following instructions and warnings:</p>
-                            <strong>Instructions</strong> <br>
-                            <code class="ms-4 badge bg-success">
+                            <strong>Instructions</strong>
+                            <div class="ms-4 bg-success px-2 py-1 mt-2 text-light rounded mb-2" style="width: fit-content;">
                                 Extract your .mrpack file using 7-zip, then upload the included JSON file here.
-                            </code> <br>
+                            </div>
+                            <div class="ms-4 bg-success px-2 py-1 text-light  rounded mb-2" style="width: fit-content;">
+                                If only one file is downloaded instead of all, your browser may be blocking multiple downloads. Look for a popup or notification (like the one shown below) and allow popups or multiple downloads for this site.
+                            </div>
+                            <img class="ms-4 rounded-2" src="popup-tutorial.png" alt="" style="max-width: calc(100% - 25px);">
                             <div style="height: 10px;"></div>
                             <strong>Warnings</strong> <br>
-                            <code class="ms-4 badge bg-warning">
+                            <div class="ms-4 mt-2  bg-warning px-2 py-1 text-dark rounded mb-2" style="width: fit-content;">
                                 The JSON file contains all the download links.
-                            </code> <br>
+                            </div>
                             <div style="height: 10px;"> </div>
                             <strong>Dangers</strong><br>
-                            <code class="ms-4 badge bg-danger">
+                            <div class="ms-4 mt-2  bg-danger px-2 py-1 text-light  rounded mb-2" style="width: fit-content;">
                                 Never use JSON files from untrusted sources.
-                            </code> <br>
-                            <code class="ms-4 badge bg-danger">
+                            </div>
+                            <div class="ms-4 bg-danger px-2 py-1 text-light  rounded mb-2" style="width: fit-content;">
                                 Never use JSON files from .mrpack files from untrusted sources.
-                            </code> <br>
-                            <code class="ms-4 badge bg-danger">
+                            </div>
+                            <div class="ms-4 bg-danger px-2 py-1 text-light  rounded mb-2" style="width: fit-content;">
                                 JAR files can be dangerous. Use caution.
-                            </code>
+                            </div>
                         </div>
                     </div>
                 </div>
