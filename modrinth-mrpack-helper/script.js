@@ -136,7 +136,16 @@ document.addEventListener('DOMContentLoaded', function () {
     dlAll.addEventListener("click", function () {
         if (Array.isArray(visible_data)) {
             visible_data.forEach(element => {
-                window.open(element.downloads, '_blank');
+                let isTrusted = false;
+                try {
+                    const url = new URL(element.downloads);
+                    isTrusted = url.hostname === 'cdn.modrinth.com';
+                } catch (e) {
+                    isTrusted = false;
+                }
+                if (isTrusted) {
+                    window.open(element.downloads, '_blank');
+                }
             });
         }
     });
