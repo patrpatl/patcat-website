@@ -3,8 +3,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Array of image paths to cycle through
     const images = [
-        './end.png',
         './spawn.png',
+        './end.png',
         './nether.png'
     ];
 
