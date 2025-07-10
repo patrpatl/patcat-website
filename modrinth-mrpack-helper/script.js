@@ -132,6 +132,27 @@ document.addEventListener('DOMContentLoaded', function () {
         renderTable(customData);
     });
 
+    document.getElementById("mrpackFileInput").addEventListener("change", async function (event) {
+        const file = event.target.files[0];
+        // alert('it works');
+        if (!file) return;
+
+        const zip = await JSZip.loadAsync(file);
+
+        // Assuming your JSON file is named 'data.json' inside the ZIP
+        const jsonFile = zip.file("modrinth.index.json");
+        if (!jsonFile) {
+            alert("modrinth.index.json not found in ZIP!");
+            return;
+        }
+
+        const jsonText = await jsonFile.async("string");
+        const jsonData = JSON.parse(jsonText);
+
+        json_data = jsonData.files;
+        renderTable(json_data);
+    });
+
     // Download currently displayed files only
     dlAll.addEventListener("click", function () {
         if (Array.isArray(visible_data)) {
