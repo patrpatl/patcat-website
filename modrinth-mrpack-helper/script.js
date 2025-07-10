@@ -97,26 +97,26 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Handle file input
-    fileInput.addEventListener('change', function (event) {
-        const file = event.target.files[0];
-        if (!file) return;
+    // fileInput.addEventListener('change', function (event) {
+    //     const file = event.target.files[0];
+    //     if (!file) return;
 
-        const reader = new FileReader();
-        reader.onload = function (e) {
-            try {
-                const data = JSON.parse(e.target.result);
-                if (Array.isArray(data.files)) {
-                    json_data = data.files; // Save original data
-                    renderTable(json_data); // Initially show all
-                } else {
-                    alert('Invalid file format: "files" array missing.');
-                }
-            } catch (err) {
-                alert('Invalid JSON file.');
-            }
-        };
-        reader.readAsText(file);
-    });
+    //     const reader = new FileReader();
+    //     reader.onload = function (e) {
+    //         try {
+    //             const data = JSON.parse(e.target.result);
+    //             if (Array.isArray(data.files)) {
+    //                 json_data = data.files; // Save original data
+    //                 renderTable(json_data); // Initially show all
+    //             } else {
+    //                 alert('Invalid file format: "files" array missing.');
+    //             }
+    //         } catch (err) {
+    //             alert('Invalid JSON file.');
+    //         }
+    //     };
+    //     reader.readAsText(file);
+    // });
 
     // Handle compatibility filter
     filCompat.addEventListener("change", function () {
