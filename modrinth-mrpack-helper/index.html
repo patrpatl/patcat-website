@@ -27,6 +27,7 @@
     </style>
     <!-- Google Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- JZip Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </head>
 
@@ -75,13 +76,33 @@
                         <label for="mrpackFileInput" class="form-label pt-4">Upload MRPACK File</label>
                         <input type="file" class="form-control" id="mrpackFileInput" accept=".mrpack">
                         <br>
+                        <div class="card p-3 mb-4">
+                            <h4>Terms and Conditions</h4>
+
+                            <strong>By using this application, you agree to the following:</strong>
+
+                            <p class="text-danger">
+                                Please ensure you have carefully read the important safety section. It is provided to help protect you and your computer.
+                            </p>
+
+                            <strong>Use at your own risk.</strong>
+                            <p>
+                                You are fully responsible for any damage caused to your computer by using this tool. While this software is not a virus, downloading <code>.mrpack</code> files from untrusted or sketchy sources may expose you to malware. Even reputable platforms like Modrinth are not immune to such risks. I’ve done my best to warn and inform you—please use caution.
+                            </p>
+
+                            <strong>No Warranty Provided.</strong>
+                            <p>
+                                This software is provided “as is,” without any express or implied warranty. It is developed and maintained by <a href="https://github.com/patrpatl/">patrpatl on GitHub</a>. You can review the complete source code in the public <a href="https://github.com/patrpatl/patcat-website/tree/main/modrinth-mrpack-helper">GitHub Repository</a>.
+                            </p>
+                        </div>
                         <div class="card p-3 pb-4 d-block" style="font-size: small;">
                             <h4>Important</h4>
                             <p>Please read the following instructions and warnings:</p>
                             <strong>Instructions</strong>
                             <div class="ms-4 bg-success px-2 py-1 mt-2 text-light rounded mb-2" style="width: fit-content;">
-                                Extract your .mrpack file using 7-zip, then upload the included JSON file here.
+                                Download your mrpack file from Modrinth, then upload the included Modrinth file above.
                             </div>
+                            <p class="ms-4 text-danger">Never download <code>.mrpack</code> files from unknown or untructed sources.</p>
                             <div class="ms-4 bg-success px-2 py-1 text-light  rounded mb-2" style="width: fit-content;">
                                 If only one file is downloaded instead of all, your browser may be blocking multiple downloads. Look for a popup or notification (like the one shown below) and allow popups or multiple downloads for this site.
                             </div>
@@ -89,7 +110,7 @@
                             <div style="height: 10px;"></div>
                             <strong>Warnings</strong> <br>
                             <div class="ms-4 mt-2  bg-warning px-2 py-1 text-dark rounded mb-2" style="width: fit-content;">
-                                The JSON file contains all the download links.
+                                The JSON file contains all the download links. Never download software from your untrusted sources.
                             </div>
                             <div style="height: 10px;"> </div>
                             <strong>Dangers</strong><br>
